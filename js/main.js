@@ -4,7 +4,10 @@ const choices = ["rock", "paper", "scissors"];
 const playerDisplay = document.getElementById("player-display");
 const computerDisplay = document.getElementById("computer-display");
 const resultDisplay = document.getElementById("result");
-
+const playerScoreDisplay = document.getElementById("player-score");
+const computerScoreDisplay = document.getElementById("computer-score");
+let playerScore = 0;
+let computerScore = 0;
 // playGame funtion🎮
 
 function playGame (playerChoice) {
@@ -37,9 +40,13 @@ function playGame (playerChoice) {
     switch (result) {
         case "YOU WIN🏆": 
             resultDisplay.classList.add("greenText");
+            playerScore++
+            playerScoreDisplay.textContent = playerScore;
             break;
         case "YOU LOSE😭": 
             resultDisplay.classList.add("redText");
+            computerScore++
+            computerScoreDisplay.textContent = computerScore;
             break;
     }
 }
