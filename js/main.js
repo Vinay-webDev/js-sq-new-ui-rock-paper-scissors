@@ -19,19 +19,29 @@ function playGame (playerChoice) {
     } else {
         switch (playerChoice) {
             case "rock": 
-            result = (computerChoice === "scissors") ? "YOU WIN🏆":"YOU LOSE😭";
-            break;
+                result = (computerChoice === "scissors") ? "YOU WIN🏆":"YOU LOSE😭";
+                break;
             case "paper": 
-            result = (computerChoice === "rock") ? "YOU WIN🏆":"YOU LOSE😭";
-            break;
+                result = (computerChoice === "rock") ? "YOU WIN🏆":"YOU LOSE😭";
+                break;
             case "scissors": 
-            result = (computerChoice === "paper") ? "YOU WIN🏆":"YOU LOSE😭";
-            break;
+                result = (computerChoice === "paper") ? "YOU WIN🏆":"YOU LOSE😭";
+                break;
         }
     }
     playerDisplay.textContent = `PLAYER: ${playerChoice}`;
     computerDisplay.textContent = `COMPUTER: ${computerChoice}`;
     resultDisplay.textContent = result;
+    // I want result to be green when it's win and red when it's lose
+    resultDisplay.classList.remove("greenText","redText");
+    switch (result) {
+        case "YOU WIN🏆": 
+            resultDisplay.classList.add("greenText");
+            break;
+        case "YOU LOSE😭": 
+            resultDisplay.classList.add("redText");
+            break;
+    }
 }
 
 
